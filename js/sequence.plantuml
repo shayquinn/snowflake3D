@@ -1,0 +1,79 @@
+@startuml scriptUML
+
+class "WebGLRenderer" {
+    +preserveDrawingBuffer: boolean
+    +antialias: boolean
+    +toneMapping: THREE.ToneMapping
+    +toneMappingExposure: float
+    +outputEncoding: THREE.Encoding
+    +physicallyCorrectLights: boolean
+    +shadowMapType: THREE.ShadowMapType
+    +setPixelRatio(ratio: float)
+    +setSize(width: int, height: int)
+}
+
+class "Scene" {
+    +background: THREE.Texture
+    +environment: THREE.Texture
+}
+
+class "Camera" {
+    +fov: int
+    +aspectRatio: float
+    +nearClip: float
+    +farClip: float
+    +position: THREE.Vector3
+    +lookAt(target: THREE.Vector3)
+}
+
+class "OrbitControls" {
+    +enablePan: boolean
+    +enableRotate: boolean
+    +enableZoom: boolean
+    +minDistance: float
+    +maxDistance: float
+    +dampingFactor: float
+    +autoRotate: boolean
+    +autoRotateSpeed: float
+    +zoomSpeed: float
+}
+
+class "DirectionalLight" {
+    +color: THREE.Color
+    +intensity: float
+    +position: THREE.Vector3
+}
+
+class "HemisphereLight" {
+    +skyColor: THREE.Color
+    +groundColor: THREE.Color
+    +intensity: float
+}
+
+class "MeshPhysicalMaterial" {
+    +transmission: float
+    +thickness: float
+    +envMap: THREE.Texture
+    +envMapIntensity: float
+    +roughnessMap: THREE.Texture
+    +normalMap: THREE.Texture
+    +metalnessMap: THREE.Texture
+    +side: THREE.Side
+}
+
+class "Mesh" {
+    +geometry: THREE.Geometry
+    +material: THREE.Material
+}
+
+WebGLRenderer "1" -- "*" Scene : contains
+WebGLRenderer "1" -- "1" Camera : views through
+Scene "1" -- "*" DirectionalLight : illuminates
+Scene "1" -- "*" HemisphereLight : illuminates
+Scene "1" -- "*" Mesh : displays
+Camera "1" -- "1" OrbitControls : manipulated by
+Mesh "1" -- "1" MeshPhysicalMaterial : uses
+
+@enduml
+
+

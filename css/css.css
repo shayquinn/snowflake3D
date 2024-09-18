@@ -11,7 +11,9 @@
 body {
   font-family: "Lato", sans-serif;
   transition: background-color .5s;
+  overflow: hidden; /* Hide scrollbars */
 }
+
 
 #menuO{
   -webkit-user-select: none; /* Safari */        
@@ -21,7 +23,19 @@ body {
 }
 
 #menuC{
-  pointer-events: none
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+#menuOO{
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+#menuCC{
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -48,6 +62,7 @@ body {
   color: #818181;
   display: block;
   transition: 0.3s;
+  
 }
 
 .sidenav a:hover {
@@ -62,6 +77,7 @@ body {
   margin-left: 50px;
 }
 
+
 #main {
   transition: margin-left .5s;
   padding: 16px;
@@ -74,6 +90,15 @@ body {
 	position: absolute;
 }
 
+#con3{
+	position: relative;
+  	width: 100vw;
+  	height: 100vh;}
+#con4{
+	position: absolute;
+}
+
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -85,6 +110,7 @@ body {
   width: 100%;
 }
 
+
 .slider {
   -webkit-appearance: none;
   width: 100%;
@@ -94,8 +120,6 @@ body {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
-
-  
 }
 
 .slider:hover {
@@ -107,25 +131,31 @@ body {
   appearance: none;
   width: 25px;
   height: 25px;
-  background: #04AA6D;
+  background: #1c53ac;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: #04AA6D;
+  background:  #1c53ac;
   cursor: pointer;
 }
 
-.range{
-  cursor: -webkit-grab;
-  cursor: grab;
+.colourPicker {
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
-.range:active{
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
+
+.slider:hover {
+  opacity: 1;
 }
+
 
 
 #canvas {
@@ -187,4 +217,129 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+  color: #f1f1f1;
 }
+
+
+/*//////*/
+
+
+
+
+/* Style for the collapsible button */
+.collapsible {
+  background-color: #777; /* Background color of the button */
+  color: white; /* Text color */
+  cursor: pointer; /* Cursor changes to pointer when hovering over the button */
+  padding: 18px; /* Padding inside the button */
+  width: 100%; /* Button takes the full width of its container */
+  border: none; /* No border */
+  text-align: left; /* Text is aligned to the left */
+  outline: none; /* No outline when the button is focused */
+  font-size: 15px; /* Font size of the button text */
+}
+
+/* Style for the button when it is active or hovered over */
+.active, .collapsible:hover {
+  background-color: #555; /* Background color changes to a darker shade */
+}
+
+/* Style for the pseudo-element after the collapsible button */
+.collapsible:after {
+  content: '\002B'; /* Content of the pseudo-element is a plus sign */
+  color: white; /* Color of the plus sign */
+  font-weight: bold; /* Bold font weight */
+  float: right; /* Float the plus sign to the right */
+  margin-left: 5px; /* Margin to the left of the plus sign */
+}
+
+/* Style for the pseudo-element after the button when it is active */
+.active:after {
+  content: "\2212"; /* Content of the pseudo-element changes to a minus sign */
+}
+
+/* Style for the collapsible content */
+.content {
+  padding: 0 18px; /* Padding inside the content */
+  max-height: 0; /* Initial max-height is 0 to hide the content */
+  overflow: hidden; /* Hide any overflow content */
+  transition: max-height 0.2s ease-out; /* Transition effect for max-height */
+  background-color: #111111; /* Background color of the content */
+}
+
+.content_2 {
+  padding: 0 18px; /* Padding inside the content */
+  max-height: 0; /* Initial max-height is 0 to hide the content */
+  overflow: hidden; /* Hide any overflow content */
+  transition: max-height 0.2s ease-out; /* Transition effect for max-height */
+  background-color: #111111; /* Background color of the content */
+}
+
+
+
+
+/*tabs*/
+/* Style the tab */
+.tab {
+  transition: height 1s;
+  overflow: hidden;
+  background-color: #0b0000;
+}
+
+.tab:hover {
+  transition: height 0.5s;
+  overflow: hidden;
+  background-color: #0b0000;
+}
+
+/* Style the buttons inside the tab */
+.tabButton {
+  width: 50%;
+  font-size: 18px;
+  background-color: #111111; 
+  border: none;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Change background color of buttons on hover */
+.tabButton:hover {
+  background-color: #34558a;
+  cursor: pointer;
+}
+
+/* Create an active/current tablink class */
+.tabButton.active {
+  background-color: rgb(47, 46, 46);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  /*padding: 6px 12px;*/
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+/* Loading screen styles */
+#loadingScreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  z-index: 1000;
+}
+
+
+/*/////*/
+
