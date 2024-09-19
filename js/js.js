@@ -388,7 +388,12 @@ function drawBufferMesh(flakes, dataObj) {
     mergedMesh.dynamic = true;
     mergedMesh.material.needsUpdate = true
     /////////////
-    mergedMesh.material.colorWrite = true;
+    if(dataObj.envMTog){
+        mergedMesh.material.colorWrite = false;
+    }else{
+        mergedMesh.material.colorWrite = true;
+    }
+    
     mergedMesh.material.depthWrite = true;
     mergedMesh.material.depthTest = true;
     /////////////
