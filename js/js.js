@@ -315,7 +315,7 @@ function initMaterial() {
 
     metalness_map = new THREE.TextureLoader(manager).load('./textures/pbr/metallic.jpg');
     roughness_map = new THREE.TextureLoader(manager).load('./textures/pbr/roughness.jpg');
-    normal_map = new THREE.TextureLoader(manager).load('./textures/pbr/Water 0175normal.jpg');
+    normal_map = new THREE.TextureLoader(manager).load('./textures/pbr/Water_0175normal.jpg');
     //let normal_map = new THREE.TextureLoader().load('./textures/pbr/normal.jpg');
     
     hdrEquirect = new RGBELoader(manager).load(
