@@ -81,7 +81,7 @@ manager.onError = function (url) {
 
 function initThreejs() {
     ///////// renderer //////////
-    const renderer = new THREE.WebGLRenderer({
+    renderer = new THREE.WebGLRenderer({
         preserveDrawingBuffer: true,
         antialias: true
     });
@@ -1023,6 +1023,7 @@ window.onload = function(){
     var Save = document.getElementById("Save");
     //https://www.sanwebe.com/snippet/downloading-canvas-as-image-dataurl-on-button-click
     Save.addEventListener('click',(e)=>{
+        console.log(renderer);
         var image = renderer.domElement.toDataURL("image/png").replace("image/png", "image/octet-stream");
         let link = document.createElement('a');
         link.download = "my-image.png";
